@@ -17,7 +17,7 @@ def Validar_codigo(Codigo):
 
 def Validar_tipoconsulta(Consulta):
  Consulta = Consulta.strip().lower()
- tipos_consulta = ["matricula", "pagos", "constancias", "certificaciones", "otros"]
+ tipos_consulta = ["matricula", "pagos", "constancias", "certificaciones","plataforma","otros"]
  if Consulta not in tipos_consulta:
   print("El tipo de consulta no es válido, ingrese un tipo de consulta válido")
   return False
@@ -34,12 +34,23 @@ def Prioridad(Consulta):
      return "Prioridad Media"
     elif Consulta == "certificaciones":
      return "Prioridad Media"
+    elif Consulta == "plataforma":
+      return "Prioridad Media"
     elif Consulta == "otros":
       return "Prioridad Baja"
     else:
       return "Error de prioridad"
 
-def Resumen_datos(Nombre, codigo, Consulta, Descripcion, Nivel):
+
+def Validar_descripcion(Descripcion):
+    Descripcion = Descripcion.strip()
+    if Descripcion == "":
+      print("El dato no puede estar vacio, intentalo nuevamente")
+      return False
+    else:
+      return True
+
+def Resumen_datos(Nombre, codigo, Consulta, Descripcion, Nivel,):
   print("-Solicitud-")
   print("Nombre: ", Nombre)
   print("Codigo: ", codigo)
@@ -71,9 +82,10 @@ def Mostrar_datos():
       Consulta = Consulta.strip().lower()
     nivel = Prioridad(Consulta)
     print(nivel)
+
     Descripcion = str(input("Describa de forma breve su consulta: "))
     Descripcion = Descripcion.strip()
-    while not Validar_nombre(Descripcion):
+    while not Validar_descripcion(Descripcion):
       Descripcion = str(input("Describa de forma breve su consulta: "))
       Descripcion = Descripcion.strip()
     return Nombre, codigo, Consulta, Descripcion, nivel
