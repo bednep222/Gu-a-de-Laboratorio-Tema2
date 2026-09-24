@@ -1,3 +1,4 @@
+# [Req. 6]:
 def Validar_nombre(Nombre):
   Nombre = Nombre.strip()
   if Nombre == "":
@@ -5,7 +6,7 @@ def Validar_nombre(Nombre):
    return False
   else:
    return True
-
+# [Req. 2]:
 def Validar_codigo(Codigo):
   Longitud_codigo = 8
   Codigo = Codigo.strip()
@@ -14,7 +15,7 @@ def Validar_codigo(Codigo):
     return False
   else:
    return True 
-
+# [Req. 3]:
 def Validar_tipoconsulta(Consulta):
  Consulta = Consulta.strip().lower()
  tipos_consulta = ["matricula", "pagos", "constancias", "certificaciones","plataforma","otros"]
@@ -23,7 +24,7 @@ def Validar_tipoconsulta(Consulta):
   return False
  else:
   return True
-
+# [Req. 5]:
 def Prioridad(Consulta):
     Consulta = Consulta.strip().lower()
     if Consulta == "matricula":
@@ -41,7 +42,7 @@ def Prioridad(Consulta):
     else:
       return "Error de prioridad"
 
-
+# [Req. 6]:
 def Validar_descripcion(Descripcion):
     Descripcion = Descripcion.strip()
     if Descripcion == "":
@@ -49,7 +50,7 @@ def Validar_descripcion(Descripcion):
       return False
     else:
       return True
-
+# [Req. 7]:
 def Resumen_datos(Nombre, codigo, Consulta, Descripcion, Nivel,):
   print("-Solicitud-")
   print("Nombre: ", Nombre)
@@ -57,13 +58,13 @@ def Resumen_datos(Nombre, codigo, Consulta, Descripcion, Nivel,):
   print("Consulta: ", Consulta)
   print("Descripcion: ", Descripcion)
   print("Nivel:", Nivel)
-
+# [Req. 4]:
 def mostrar_menu():
   print("1. Registrar solicitud")
   print("2. Ver ultima solicitud")
   print("3. Salir")
 
-    
+# [Req. 1,8,9]:  
 def Mostrar_datos():
     Nombre = str(input("Ingrese su nombre: "))
     while not Validar_nombre(Nombre):
@@ -90,6 +91,7 @@ def Mostrar_datos():
       Descripcion = Descripcion.strip()
     return Nombre, codigo, Consulta, Descripcion, nivel
 
+# [Req. 8, 9, 10, 11]
 ult_nombre = ""
 ult_codigo = ""
 ult_consulta = ""
