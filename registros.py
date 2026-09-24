@@ -90,13 +90,30 @@ def Mostrar_datos():
       Descripcion = Descripcion.strip()
     return Nombre, codigo, Consulta, Descripcion, nivel
 
-mostrar_menu()
-opcion = input("Elija una opcion: ")
+ult_nombre = ""
+ult_codigo = ""
+ult_consulta = ""
+ult_descripcion = ""
+ult_nivel = ""
 
-if opcion == "1":
-  Nombre, codigo, Consulta, Descripcion, nivel = Mostrar_datos()
-  Resumen_datos(Nombre, codigo, Consulta, Descripcion, nivel)
-elif opcion == "3":
-  print("Saliendo...")
-else:
-  print("Opcion no valida")
+while True:
+    mostrar_menu()
+    opcion = input("Elija una opcion: ").strip() # Solo una lectura de input
+    if opcion == "1":
+        Nombre, codigo, Consulta, Descripcion, nivel = Mostrar_datos()        
+        ult_nombre = Nombre
+        ult_codigo = codigo
+        ult_consulta = Consulta
+        ult_descripcion = Descripcion
+        ult_nivel = nivel       
+        Resumen_datos(Nombre, codigo, Consulta, Descripcion, nivel)
+    elif opcion == "2":
+        if ult_nombre != "":
+            Resumen_datos(ult_nombre, ult_codigo, ult_consulta, ult_descripcion, ult_nivel)
+        else:
+            print("No hay solicitudes registradas aun.")
+    elif opcion == "3":
+        print("Saliendo...")
+        break
+    else:
+        print("Opcion no valida")
