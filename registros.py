@@ -1,10 +1,10 @@
 def Validar_nombre(Nombre):
   Nombre = Nombre.strip()
   if Nombre == "":
-    print("Ingrese un nombre valido e intentalo nuevamente")
-    return False
+   print("El dato no puede estar vacio, intentalo nuevamente")
+   return False
   else:
-    return True
+   return True
 
 def Validar_codigo(Codigo):
   Longitud_codigo = 8
@@ -47,6 +47,11 @@ def Resumen_datos(Nombre, codigo, Consulta, Descripcion, Nivel):
   print("Descripcion: ", Descripcion)
   print("Nivel:", Nivel)
 
+def mostrar_menu():
+  print("1. Registrar solicitud")
+  print("2. Ver ultima solicitud")
+  print("3. Salir")
+
     
 def Mostrar_datos():
     Nombre = str(input("Ingrese su nombre: "))
@@ -67,7 +72,19 @@ def Mostrar_datos():
     nivel = Prioridad(Consulta)
     print(nivel)
     Descripcion = str(input("Describa de forma breve su consulta: "))
+    Descripcion = Descripcion.strip()
+    while not Validar_nombre(Descripcion):
+      Descripcion = str(input("Describa de forma breve su consulta: "))
+      Descripcion = Descripcion.strip()
     return Nombre, codigo, Consulta, Descripcion, nivel
 
-Nombre, codigo, Consulta, Descripcion, nivel = Mostrar_datos()
-Mostrar_datos(Nombre, codigo, Consulta, Descripcion, nivel)
+mostrar_menu()
+opcion = input("Elija una opcion: ")
+
+if opcion == "1":
+  Nombre, codigo, Consulta, Descripcion, nivel = Mostrar_datos()
+  Resumen_datos(Nombre, codigo, Consulta, Descripcion, nivel)
+elif opcion == "3":
+  print("Saliendo...")
+else:
+  print("Opcion no valida")
